@@ -1,5 +1,5 @@
 {
-  "name": "abstergo-sample-app",
+  "name": "first-aws-app",
   "version": "1.0.1",
   "description": "Sample Node.js app for CI/CD testing",
   "main": "app.js",
