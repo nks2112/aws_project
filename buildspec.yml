@@ -10,7 +10,9 @@ phases:
     commands:
       - echo Build started
       - docker build -t my-app .
+      - docker tag my-app:latest 231726701291.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
 
   post_build:
     commands:
-      - echo Build completed
+      - echo Pushing image to ECR...
+      - docker push 231726701291.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
