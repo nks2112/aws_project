@@ -13,11 +13,8 @@ phases:
       - docker tag my-app:latest 231726701291.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
 
   post_build:
-    commands:
-      - echo Pushing image to ECR...
-      - docker push 231726701291.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest
-      - echo Creating imagedefinitions.json...
-      - printf '[{"name":"my-app-container","imageUri":"231726701291.dkr.ecr.ap-south-1.amazonaws.com/my-app:latest"}]' > imagedefinitions.json
+  commands:
+    - printf '[{"name":"my-app-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files:
